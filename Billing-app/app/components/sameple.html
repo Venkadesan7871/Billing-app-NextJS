@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Restaurant POS - Sales Reports</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                        "text-light": "#0e141b",
+                        "text-dark": "#f1f5f9",
+                        "text-muted-light": "#4e7397",
+                        "text-muted-dark": "#94a3b8",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1e293b",
+                        "border-light": "#e2e8f0",
+                        "border-dark": "#334155",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+    <div class="relative flex h-auto min-h-screen w-full flex-col">
+         <!-- Main Content -->
+        <main class="flex-1 px-4 py-8 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+                <!-- PageHeading -->
+                <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+                    <div class="flex flex-col gap-1">
+                        <h2 class="text-3xl font-black tracking-tight">Sales Reports</h2>
+                        <p class="text-text-muted-light dark:text-text-muted-dark text-base">Analyze your sales data and
+                            track performance.</p>
+                    </div>
+                    <button
+                        class="flex min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg h-10 px-4 bg-primary/20 dark:bg-primary/20 text-primary text-sm font-bold">
+                        <span class="material-symbols-outlined text-lg">download</span>
+                        <span class="truncate">Export Report</span>
+                    </button>
+                </div>
+                <!-- Chips/Filters -->
+                <div class="flex flex-wrap gap-3 py-6">
+                    <button
+                        class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary text-white pl-4 pr-3 text-sm font-medium">Today</button>
+                    <button
+                        class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark pl-4 pr-3 text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:border-primary/50 hover:text-primary">This
+                        Week</button>
+                    <button
+                        class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark pl-4 pr-3 text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:border-primary/50 hover:text-primary">This
+                        Month</button>
+                    <button
+                        class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark pl-4 pr-3 text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:border-primary/50 hover:text-primary">
+                        Custom Range
+                        <span class="material-symbols-outlined text-lg">calendar_today</span>
+                    </button>
+                </div>
+                <!-- Stats -->
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div
+                        class="flex flex-col gap-2 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark p-6 shadow-sm">
+                        <p class="text-base font-medium text-text-muted-light dark:text-text-muted-dark">Total Revenue
+                        </p>
+                        <p class="text-3xl font-bold tracking-tight">$1,250.75</p>
+                        <p class="text-green-600 dark:text-green-500 text-sm font-medium">+5.2% vs yesterday</p>
+                    </div>
+                    <div
+                        class="flex flex-col gap-2 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark p-6 shadow-sm">
+                        <p class="text-base font-medium text-text-muted-light dark:text-text-muted-dark">Total Orders
+                        </p>
+                        <p class="text-3xl font-bold tracking-tight">152</p>
+                        <p class="text-green-600 dark:text-green-500 text-sm font-medium">+8.1% vs yesterday</p>
+                    </div>
+                    <div
+                        class="flex flex-col gap-2 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark p-6 shadow-sm">
+                        <p class="text-base font-medium text-text-muted-light dark:text-text-muted-dark">Items Sold</p>
+                        <p class="text-3xl font-bold tracking-tight">489</p>
+                        <p class="text-green-600 dark:text-green-500 text-sm font-medium">+3.5% vs yesterday</p>
+                    </div>
+                </div>
+                <!-- Charts -->
+                <div class="grid grid-cols-1 gap-6 pt-6 lg:grid-cols-5">
+                    <!-- Pie Chart Card -->
+                    <div
+                        class="flex flex-col gap-4 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark p-6 shadow-sm lg:col-span-2">
+                        <h3 class="text-lg font-bold">Top Selling Items</h3>
+                        <div class="flex items-center justify-center py-4">
+                            <div class="relative size-48">
+                                <svg class="size-full" viewbox="0 0 36 36">
+                                    <circle class="stroke-current text-purple-200 dark:text-purple-800" cx="18" cy="18"
+                                        fill="none" r="15.9155" stroke-width="3"></circle>
+                                    <circle class="stroke-current text-teal-500" cx="18" cy="18" fill="none" r="15.9155"
+                                        stroke-dasharray="40, 100" stroke-dashoffset="25" stroke-width="3"></circle>
+                                    <circle class="stroke-current text-primary" cx="18" cy="18" fill="none" r="15.9155"
+                                        stroke-dasharray="30, 100" stroke-dashoffset="-15" stroke-width="3"></circle>
+                                    <circle class="stroke-current text-orange-500" cx="18" cy="18" fill="none"
+                                        r="15.9155" stroke-dasharray="20, 100" stroke-dashoffset="-45" stroke-width="3">
+                                    </circle>
+                                </svg>
+                                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                    <span class="text-xs text-text-muted-light dark:text-text-muted-dark">Total
+                                        Units</span>
+                                    <span class="text-2xl font-bold">489</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center justify-between text-sm">
+                                <div class="flex items-center gap-2">
+                                    <span class="size-2.5 rounded-full bg-primary"></span>
+                                    <span>Pizza</span>
+                                </div>
+                                <span class="font-semibold">30%</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <div class="flex items-center gap-2">
+                                    <span class="size-2.5 rounded-full bg-teal-500"></span>
+                                    <span>Burgers</span>
+                                </div>
+                                <span class="font-semibold">40%</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <div class="flex items-center gap-2">
+                                    <span class="size-2.5 rounded-full bg-orange-500"></span>
+                                    <span>Pasta</span>
+                                </div>
+                                <span class="font-semibold">20%</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <div class="flex items-center gap-2">
+                                    <span class="size-2.5 rounded-full bg-purple-200 dark:bg-purple-800"></span>
+                                    <span>Others</span>
+                                </div>
+                                <span class="font-semibold">10%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bar Chart Card -->
+                    <div
+                        class="flex min-h-[400px] flex-col gap-4 rounded-xl bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark p-6 shadow-sm lg:col-span-3">
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-bold">Sales Trend</h3>
+                            <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Revenue for today</p>
+                        </div>
+                        <div class="grid h-full grid-cols-7 grid-rows-[1fr_auto] items-end gap-x-4 gap-y-2 pt-4">
+                            <div class="flex w-full flex-col-reverse gap-2 items-center">
+                                <p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">Mon</p>
+                                <div class="w-full rounded-t bg-primary/20 dark:bg-primary/30" style="height: 60%;">
+                                </div>
+                            </div>
+                            <div class="flex w-full flex-col-reverse gap-2 items-center">
+                                <p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">Tue</p>
+                                <div class="w-full rounded-t bg-primary/20 dark:bg-primary/30" style="height: 80%;">
+                                </div>
+                            </div>
+                            <div class="flex w-full flex-col-reverse gap-2 items-center">
+                                <p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">Wed</p>
+                                <div class="w-full rounded-t bg-primary/20 dark:bg-primary/30" style="height: 75%;">
+                                </div>
+                            </div>
+                            <div class="flex w-full flex-col-reverse gap-2 items-center">
+                                <p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">Thu</p>
+                                <div class="w-full rounded-t bg-primary/20 dark:bg-primary/30" style="height: 50%;">
+                                </div>
+                            </div>
+                            <div class="flex w-full flex-col-reverse gap-2 items-center">
+                                <p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">Fri</p>
+                                <div class="w-full rounded-t bg-primary/20 dark:bg-primary/30" style="height: 95%;">
+                                </div>
+                            </div>
+                            <div class="flex w-full flex-col-reverse gap-2 items-center">
+                                <p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">Sat</p>
+                                <div class="w-full rounded-t bg-primary/20 dark:bg-primary/30" style="height: 100%;">
+                                </div>
+                            </div>
+                            <div class="flex w-full flex-col-reverse gap-2 items-center">
+                                <p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">Sun</p>
+                                <div class="w-full rounded-t bg-primary/20 dark:bg-primary/30" style="height: 85%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
